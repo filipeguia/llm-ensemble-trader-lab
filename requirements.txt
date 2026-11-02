@@ -1,0 +1,5 @@
+# The core package needs nothing beyond the standard library
+# Direct API backend (optional, lazy import)
+anthropic>=1.0
+# Tests
+pytest>=8

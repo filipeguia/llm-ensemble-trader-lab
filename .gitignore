@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Local environments and secrets
+.venv/
+venv/
+.env
+.env.*
+
+# Generated run output and exchange folders
+runs/
+exchange/
+
+# Private working notes, keep out of the public repository
+SANITIZATION_REPORT.md

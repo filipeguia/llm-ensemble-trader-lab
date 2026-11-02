@@ -1,0 +1,78 @@
+{
+  "data": {
+    "csv": null,
+    "synthetic": {
+      "n_bars": 1500,
+      "seed": 7,
+      "start": "2024-01-01T00:00:00",
+      "bar_minutes": 60,
+      "start_price": 100.0
+    }
+  },
+  "trigger": {
+    "name": "return_zscore",
+    "lookback": 48,
+    "z_threshold": 2.5,
+    "cooldown_bars": 8
+  },
+  "prompt": {
+    "context_bars": 24,
+    "price_decimals": 4,
+    "stop_vol_mult": 2.0,
+    "target_vol_mult": 2.0,
+    "policy_file": null
+  },
+  "sim": {
+    "position_size": 1.0,
+    "half_spread_bps": 1.0,
+    "starting_equity": 100000.0
+  },
+  "limits": {
+    "max_stop_pct": 10.0,
+    "min_reward_risk": 0.0
+  },
+  "ensemble": {
+    "n_agents": 5,
+    "max_workers": 1,
+    "parse_retries": 0,
+    "rule": {
+      "mode": "quorum",
+      "quorum_fraction": 0.5,
+      "quorum_votes": null,
+      "tie_policy": "hold",
+      "priority": [
+        "HOLD",
+        "CLOSE",
+        "SELL",
+        "BUY"
+      ],
+      "invalid_vote_policy": "abstain",
+      "min_valid_fraction": 0.5
+    }
+  },
+  "backend": {
+    "kind": "mock",
+    "model": "claude-sonnet-5-5",
+    "max_tokens": 2048,
+    "effort": "low",
+    "structured_output": false,
+    "server_side_fallback": false,
+    "request_timeout_s": 60.0,
+    "sdk_max_retries": 2,
+    "exchange_dir": "exchange",
+    "poll_interval_s": 1.0,
+    "wait_timeout_s": 900.0,
+    "settle_s": 0.2,
+    "mock_seed": 0,
+    "mock_deviation_rate": 0.2,
+    "mock_malformed_rate": 0.05
+  },
+  "cost": {
+    "max_usd": 5.0,
+    "chars_per_token": 3.0,
+    "assumed_output_tokens": 200,
+    "cache_hit_rate": 0.0,
+    "price_input_per_mtok": null,
+    "price_output_per_mtok": null
+  }
+}

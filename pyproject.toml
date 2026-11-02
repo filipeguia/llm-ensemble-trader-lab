@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-ensemble-trader-lab"
+version = "0.1.0"
+description = "Harness for event-triggered LLM decisions: strict JSON contract, ensemble voting, cost estimate, dry-run, API and file-exchange backends"
+readme = "README.md"
+requires-python = ">=3.10"
+# The core package uses only the standard library
+dependencies = []
+
+[project.optional-dependencies]
+api = ["anthropic>=1.0"]
+dev = ["pytest>=8", "anthropic>=1.0"]
+
+[project.scripts]
+llm-lab = "llm_ensemble_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
